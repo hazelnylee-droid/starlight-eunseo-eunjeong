@@ -1,0 +1,723 @@
+
+<style>
+[id^="ch"] { scroll-margin-top: 40px; }
+a[href^="#"] { cursor: pointer; }
+
+@media(max-width:680px){
+body{padding:20px 14px;font-size:14.5px}
+.chapter-title{font-size:19px}
+.chapter-sub{font-size:11px;margin-bottom:24px}
+.section-title{font-size:15px;margin-top:28px;margin-bottom:12px}
+.body-text{font-size:14px;line-height:1.8;margin-bottom:16px}
+.box{padding:16px 16px;margin:18px 0}
+.box p{font-size:13px;line-height:1.75}
+.card-pattern{padding:16px 16px;margin:18px 0}
+.card-pattern .card-title{font-size:13px}
+.card-pattern p{font-size:13px;line-height:1.7}
+.card-strength{padding:16px 14px;margin:12px 0;gap:12px}
+.card-strength .strength-num{font-size:24px;min-width:28px}
+.card-strength .strength-title{font-size:13px}
+.card-strength p{font-size:12.5px}
+.divider{margin:32px 0}
+.divider-gold{margin:24px 0}
+.closing-box{padding:24px 18px;margin:32px 0}
+.closing-box p{font-size:13.5px;line-height:1.85}
+.label{font-size:10px}
+.timeline-item{margin-bottom:16px}
+}
+@media(max-width:400px){
+body{padding:16px 10px;font-size:14px}
+.chapter-title{font-size:17px}
+.box{padding:14px 12px}
+.card-pattern{padding:14px 12px}
+.card-strength{padding:14px 12px}
+}
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@600;700&family=Sora:wght@200;300;400&family=Stylish&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#0e0e12;color:#e8e6e1;font-family:'Noto Sans KR',sans-serif;font-weight:400;font-size:15px;line-height:1.85;padding:40px 24px;max-width:680px;margin:0 auto}
+
+@keyframes tw1{0%,100%{opacity:.12}50%{opacity:.7}}
+@keyframes tw2{0%,100%{opacity:.08}50%{opacity:.6}}
+@keyframes tw3{0%,100%{opacity:.15}50%{opacity:.8}}
+@keyframes tw4{0%,100%{opacity:.05}50%{opacity:.5}}
+@keyframes tw5{0%,100%{opacity:.1}50%{opacity:.65}}
+@keyframes tw6{0%,100%{opacity:.18}50%{opacity:.75}}
+.s1{animation:tw1 3s ease-in-out infinite}.s2{animation:tw2 4.2s ease-in-out infinite}
+.s3{animation:tw3 2.5s ease-in-out infinite}.s4{animation:tw4 5s ease-in-out infinite}
+.s5{animation:tw5 3.8s ease-in-out infinite}.s6{animation:tw6 2.8s ease-in-out infinite}
+.s7{animation:tw3 4.5s ease-in-out infinite}.s8{animation:tw4 3.3s ease-in-out infinite}
+.s9{animation:tw1 5.5s ease-in-out infinite}.s10{animation:tw6 3.1s ease-in-out infinite}
+
+.chapter-title{font-family:'Noto Serif KR',serif;font-weight:700;font-size:22px;color:#e8e6e1;margin-bottom:6px}
+.chapter-sub{font-family:'Noto Serif KR',serif;font-weight:600;font-size:13px;color:#c9a84c;letter-spacing:3px;margin-bottom:32px}
+.section-title{font-family:'Noto Serif KR',serif;font-weight:600;font-size:17px;color:#e8e6e1;margin-bottom:16px;margin-top:40px}
+.body-text{color:#e8e6e1;font-size:15px;line-height:1.85;margin-bottom:20px;text-align:justify;word-break:keep-all}
+.muted{color:#9a978f}
+.label{font-family:'Sora',sans-serif;font-weight:300;font-size:11px;color:#9a978f;letter-spacing:4px;text-transform:uppercase}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,#c9a84c33,transparent);margin:48px 0}
+.divider-gold{height:1px;background:linear-gradient(90deg,transparent,#c9a84c33,transparent);margin:32px 0}
+
+.box{border-radius:8px;padding:20px 24px;margin:24px 0}
+.box-label{font-family:'Sora',sans-serif;font-weight:400;font-size:11px;letter-spacing:2px;margin-bottom:10px;display:block}
+.box p{font-size:14px;line-height:1.8}
+
+.box-fate{background:#6b8aff0d;border-left:2px solid #6b8aff}.box-fate .box-label{color:#6b8aff}.box-fate p{color:#c8d0f0}
+.box-money{background:#5cc9a70d;border-left:2px solid #5cc9a7}.box-money .box-label{color:#5cc9a7}.box-money p{color:#c0e8d8}
+.box-warn{background:#f0a0500d;border-left:2px solid #f0a050}.box-warn .box-label{color:#f0a050}.box-warn p{color:#e8d8c0}
+.box-rose{background:#e8839a0d;border-left:2px solid #e8839a}.box-rose .box-label{color:#e8839a}.box-rose p{color:#f0d0d8}
+
+.card-pattern{background:#1c1c26;border-radius:8px;padding:20px 24px;margin:24px 0;border:1px solid #ffffff08}
+.card-pattern .card-icon{font-size:14px;color:#9a978f;margin-bottom:8px;display:block}
+.card-pattern .card-title{font-family:'Noto Serif KR',serif;font-weight:600;font-size:14px;color:#e8e6e1;margin-bottom:10px}
+.card-pattern p{font-size:14px;line-height:1.8;color:#c8c4bc}
+
+.card-transit{background:linear-gradient(135deg,#1c1c26,#201828);border-radius:8px;padding:20px 24px;margin:24px 0;border:1px solid #c9a84c15}
+.card-transit .transit-label{font-family:'Sora',sans-serif;font-weight:400;font-size:16px;color:#c9a84c;margin-bottom:4px}
+.card-transit .transit-sub{font-size:12px;color:#9a978f;margin-bottom:12px;display:block}
+.card-transit p{font-size:14px;line-height:1.8;color:#c8c4d0}
+
+.card-strength{background:#1c1c26;border-radius:8px;padding:20px 24px;margin:16px 0;border:1px solid #ffffff08;display:flex;gap:16px;align-items:flex-start}
+.card-strength .strength-num{font-family:'Sora',sans-serif;font-weight:200;font-size:28px;color:#c9a84c;line-height:1;min-width:32px}
+.card-strength .strength-body{flex:1}
+.card-strength .strength-title{font-family:'Noto Serif KR',serif;font-weight:600;font-size:14px;color:#e8e6e1;margin-bottom:6px}
+.card-strength p{font-size:13px;line-height:1.7;color:#c8c4bc}
+
+.timeline{position:relative;padding-left:28px;margin:24px 0}
+.timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:#c9a84c30}
+.timeline-item{position:relative;margin-bottom:28px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:8px;width:8px;height:8px;border-radius:50%;background:#c9a84c;border:2px solid #0e0e12}
+.timeline-item.future::before{background:transparent;border:2px solid #c9a84c40}
+.timeline-item.now::before{background:#e8839a;border-color:#0e0e12;box-shadow:0 0 8px #e8839a40}
+.timeline-year{font-family:'Sora',sans-serif;font-weight:400;font-size:14px;color:#c9a84c}
+.timeline-item.future .timeline-year{color:#c9a84c60}
+.timeline-desc{font-size:13px;color:#c8c4bc;line-height:1.7;margin-top:4px}
+
+.conn-diagram{display:flex;flex-direction:column;gap:6px;margin:20px 0}
+.conn-row{display:flex;align-items:center;gap:8px;font-size:13px;padding:5px 0}
+.conn-bar{height:7px;border-radius:4px;min-width:16px}
+.conn-lbl{color:#9a978f;min-width:110px;font-weight:300;flex-shrink:0;font-size:13px}
+.conn-tp{font-weight:400;font-size:11.5px;min-width:65px}
+.sum{background:#1c1c26;border:1px solid #ffffff08;border-radius:8px;padding:20px 24px;margin:24px 0}
+.sum-r{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid #ffffff06;font-size:13px}
+.sum-r:last-child{border-bottom:none}
+.sum-l{color:#c9a84c;font-weight:500;min-width:76px;flex-shrink:0}
+.sum-v{color:#c8c4bc;font-weight:300}
+
+.guide-item{font-size:13.5px;font-weight:300;color:#c8c4bc;line-height:1.85;padding:8px 0;border-bottom:1px solid #ffffff06}
+.guide-item:last-child{border-bottom:none}
+
+.closing-box{background:linear-gradient(135deg,#1c1c26,#1a1520);border:1px solid #c9a84c20;border-radius:10px;padding:32px 28px;margin:48px 0;text-align:center}
+.closing-box p{font-size:14.5px;font-weight:300;color:#e8e6e1;line-height:2;margin-bottom:14px;text-align:center;word-break:keep-all}
+.closing-box .end-mark{font-family:'Stylish',serif;font-size:15px;color:#c9a84c;margin-top:16px;margin-bottom:0}
+
+@media(max-width:600px){body{padding:28px 18px}.box,.card-pattern,.card-transit,.card-strength,.sum{padding:16px 18px}.closing-box{padding:24px 20px}.section-title{font-size:15.5px}.body-text{font-size:14px}.sum-r{flex-direction:column;gap:3px}.card-strength{flex-direction:column;gap:8px}}
+
+@media(max-width:680px){
+body{padding:20px 14px;font-size:14.5px}
+.chapter-title{font-size:19px}
+.chapter-sub{font-size:11px;margin-bottom:24px}
+.section-title{font-size:15px;margin-top:28px;margin-bottom:12px}
+.body-text{font-size:14px;line-height:1.8;margin-bottom:16px}
+.box{padding:16px 16px;margin:18px 0}
+.box p{font-size:13px;line-height:1.75}
+.card-pattern{padding:16px 16px;margin:18px 0}
+.card-pattern .card-title{font-size:13px}
+.card-pattern p{font-size:13px;line-height:1.7}
+.card-strength{padding:16px 14px;margin:12px 0;gap:12px}
+.card-strength .strength-num{font-size:24px;min-width:28px}
+.card-strength .strength-title{font-size:13px}
+.card-strength p{font-size:12.5px}
+.divider{margin:32px 0}
+.divider-gold{margin:24px 0}
+.closing-box{padding:24px 18px;margin:32px 0}
+.closing-box p{font-size:13.5px;line-height:1.85}
+.label{font-size:10px}
+.timeline-item{margin-bottom:16px}
+}
+@media(max-width:400px){
+body{padding:16px 10px;font-size:14px}
+.chapter-title{font-size:17px}
+.box{padding:14px 12px}
+.card-pattern{padding:14px 12px}
+.card-strength{padding:14px 12px}
+}
+</style>
+
+<!-- ═══ 별빛 리포트 · 표지 ═══ -->
+<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;margin:-40px -24px 0;padding:40px 24px;">
+<svg viewBox="0 0 680 600" style="width:100%;max-width:680px;" preserveAspectRatio="xMidYMid meet">
+<defs>
+<radialGradient id="glow1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#e8e2d6" stop-opacity=".10"/><stop offset="40%" stop-color="#e8e2d6" stop-opacity=".05"/><stop offset="100%" stop-color="#e8e2d6" stop-opacity="0"/></radialGradient>
+<radialGradient id="glow2" cx="50%" cy="50%" r="50%"><stop offset="60%" stop-color="#c9a84c" stop-opacity="0"/><stop offset="78%" stop-color="#c9a84c" stop-opacity=".03"/><stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="680" height="600" fill="#0e0e12"/>
+
+<!-- background stars -->
+<circle cx="25" cy="18" r=".7" fill="#e8e6e1" class="s1"/><circle cx="68" cy="42" r=".9" fill="#e8e6e1" class="s2"/><circle cx="112" cy="15" r=".6" fill="#e8e6e1" class="s3"/><circle cx="155" cy="55" r=".8" fill="#e8e6e1" class="s4"/><circle cx="198" cy="25" r=".7" fill="#e8e6e1" class="s5"/><circle cx="245" cy="48" r=".5" fill="#e8e6e1" class="s6"/><circle cx="290" cy="18" r=".9" fill="#e8e6e1" class="s7"/><circle cx="335" cy="38" r=".6" fill="#e8e6e1" class="s8"/><circle cx="380" cy="12" r=".8" fill="#e8e6e1" class="s9"/><circle cx="425" cy="50" r=".7" fill="#e8e6e1" class="s10"/><circle cx="468" cy="22" r=".5" fill="#e8e6e1" class="s1"/><circle cx="510" cy="45" r=".9" fill="#e8e6e1" class="s2"/><circle cx="555" cy="15" r=".7" fill="#e8e6e1" class="s3"/><circle cx="598" cy="52" r=".6" fill="#e8e6e1" class="s4"/><circle cx="642" cy="28" r=".8" fill="#e8e6e1" class="s5"/>
+<circle cx="18" cy="85" r=".6" fill="#e8e6e1" class="s6"/><circle cx="42" cy="135" r=".8" fill="#e8e6e1" class="s7"/><circle cx="28" cy="195" r=".5" fill="#e8e6e1" class="s8"/><circle cx="55" cy="250" r=".7" fill="#e8e6e1" class="s9"/><circle cx="22" cy="310" r=".6" fill="#e8e6e1" class="s10"/><circle cx="48" cy="365" r=".8" fill="#e8e6e1" class="s1"/><circle cx="30" cy="420" r=".5" fill="#e8e6e1" class="s2"/><circle cx="58" cy="475" r=".7" fill="#e8e6e1" class="s3"/><circle cx="20" cy="530" r=".6" fill="#e8e6e1" class="s4"/>
+<circle cx="660" cy="90" r=".7" fill="#e8e6e1" class="s5"/><circle cx="635" cy="145" r=".6" fill="#e8e6e1" class="s6"/><circle cx="655" cy="205" r=".8" fill="#e8e6e1" class="s7"/><circle cx="628" cy="260" r=".5" fill="#e8e6e1" class="s8"/><circle cx="650" cy="320" r=".7" fill="#e8e6e1" class="s9"/><circle cx="632" cy="375" r=".6" fill="#e8e6e1" class="s10"/><circle cx="658" cy="430" r=".8" fill="#e8e6e1" class="s1"/><circle cx="625" cy="480" r=".5" fill="#e8e6e1" class="s2"/><circle cx="648" cy="540" r=".7" fill="#e8e6e1" class="s3"/>
+<circle cx="95" cy="80" r=".5" fill="#e8e6e1" class="s4"/><circle cx="585" cy="75" r=".6" fill="#e8e6e1" class="s5"/><circle cx="130" cy="350" r=".7" fill="#e8e6e1" class="s6"/><circle cx="550" cy="345" r=".6" fill="#e8e6e1" class="s7"/><circle cx="200" cy="510" r=".6" fill="#e8e6e1" class="s8"/><circle cx="480" cy="505" r=".5" fill="#e8e6e1" class="s9"/><circle cx="250" cy="555" r=".7" fill="#e8e6e1" class="s10"/><circle cx="430" cy="560" r=".6" fill="#e8e6e1" class="s1"/>
+<!-- bright -->
+<circle cx="88" cy="38" r="1.3" fill="#f0e8d8" class="s9"/><circle cx="588" cy="35" r="1.2" fill="#f0e8d8" class="s10"/><circle cx="340" cy="8" r="1.1" fill="#f0e8d8" class="s1"/><circle cx="15" cy="180" r="1.2" fill="#f0e8d8" class="s2"/><circle cx="665" cy="180" r="1.1" fill="#f0e8d8" class="s3"/><circle cx="100" cy="500" r="1" fill="#f0e8d8" class="s4"/><circle cx="580" cy="510" r="1.1" fill="#f0e8d8" class="s5"/>
+<!-- gold -->
+<circle cx="145" cy="110" r=".8" fill="#c9a84c" class="s6" opacity=".5"/><circle cx="540" cy="105" r=".7" fill="#c9a84c" class="s7" opacity=".4"/><circle cx="200" cy="440" r=".6" fill="#c9a84c" class="s8" opacity=".5"/><circle cx="490" cy="445" r=".7" fill="#c9a84c" class="s9" opacity=".4"/>
+
+<!-- glow removed - replaced by star luminaries -->
+
+<!-- ═══ 두 별 (루미너리 효과) · 상단 ═══ -->
+<defs>
+<radialGradient id="starGlow1" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#c9a84c" stop-opacity="0.35"/>
+<stop offset="30%" stop-color="#c9a84c" stop-opacity="0.15"/>
+<stop offset="60%" stop-color="#c9a84c" stop-opacity="0.05"/>
+<stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="starGlow2" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#e8e6e1" stop-opacity="0.30"/>
+<stop offset="30%" stop-color="#e8e6e1" stop-opacity="0.12"/>
+<stop offset="60%" stop-color="#e8e6e1" stop-opacity="0.04"/>
+<stop offset="100%" stop-color="#e8e6e1" stop-opacity="0"/>
+</radialGradient>
+<filter id="softGlow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="brightGlow"><feGaussianBlur stdDeviation="3.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<!-- 큰 별 루미너리 (금색 · 부모) -->
+<circle cx="290" cy="80" r="80" fill="url(#starGlow1)"/>
+<circle cx="290" cy="80" r="48" fill="url(#starGlow1)"/>
+<line x1="244" y1="80" x2="336" y2="80" stroke="#c9a84c" stroke-width=".6" opacity=".18"/>
+<line x1="290" y1="34" x2="290" y2="126" stroke="#c9a84c" stroke-width=".5" opacity=".13"/>
+<line x1="258" y1="48" x2="322" y2="112" stroke="#c9a84c" stroke-width=".3" opacity=".07"/>
+<line x1="322" y1="48" x2="258" y2="112" stroke="#c9a84c" stroke-width=".3" opacity=".07"/>
+<polygon points="290,54 296,71 314,71 300,82 305,99 290,89 275,99 280,82 266,71 284,71" fill="#c9a84c" opacity=".95" filter="url(#brightGlow)"/>
+<circle cx="290" cy="80" r="4" fill="#f5e6b8" opacity=".9"/>
+<circle cx="290" cy="80" r="2" fill="#fff" opacity=".7"/>
+
+<!-- 작은 별 루미너리 (흰색 · 자녀) -->
+<circle cx="380" cy="68" r="52" fill="url(#starGlow2)"/>
+<circle cx="380" cy="68" r="30" fill="url(#starGlow2)"/>
+<line x1="352" y1="68" x2="408" y2="68" stroke="#e8e6e1" stroke-width=".5" opacity=".16"/>
+<line x1="380" y1="40" x2="380" y2="96" stroke="#e8e6e1" stroke-width=".4" opacity=".12"/>
+<line x1="360" y1="48" x2="400" y2="88" stroke="#e8e6e1" stroke-width=".2" opacity=".06"/>
+<line x1="400" y1="48" x2="360" y2="88" stroke="#e8e6e1" stroke-width=".2" opacity=".06"/>
+<polygon points="380,51 384,62 395,62 386,69 389,80 380,74 371,80 374,69 365,62 376,62" fill="#e8e6e1" opacity=".90" filter="url(#softGlow)"/>
+<circle cx="380" cy="68" r="2.5" fill="#fff" opacity=".85"/>
+<circle cx="380" cy="68" r="1.2" fill="#fff" opacity=".6"/>
+
+<!-- 두 별 연결 빛 -->
+<line x1="305" y1="77" x2="365" y2="70" stroke="#e8e2d6" stroke-width=".8" opacity=".06"/>
+
+<!-- branding -->
+<text x="340" y="200" text-anchor="middle" font-family="'Sora',sans-serif" font-weight="200" font-size="11" fill="#9a978f" letter-spacing="6">NODE 8 ATLAS LABS</text>
+<text x="340" y="245" text-anchor="middle" font-family="'Stylish',serif" font-size="38" fill="#e8e6e1" letter-spacing="3">별빛 리포트</text>
+<text x="340" y="274" text-anchor="middle" font-family="'Sora',sans-serif" font-weight="300" font-size="10" fill="#c9a84c" letter-spacing="4">SYNASTRY PREMIUM · FOR PARENTS</text>
+
+<line x1="280" y1="298" x2="400" y2="298" stroke="#c9a84c" stroke-width=".4" opacity=".25"/>
+
+
+
+<!-- Pisces constellation (child) -->
+<g opacity=".6">
+<circle cx="240" cy="360" r="2" fill="#e8e6e1" class="s1"/><circle cx="255" cy="375" r="1.6" fill="#e8e6e1" class="s3"/><circle cx="272" cy="385" r="1.4" fill="#e8e6e1" class="s5"/><circle cx="290" cy="393" r="1.3" fill="#e8e6e1" class="s7"/><circle cx="282" cy="370" r="1.5" fill="#e8e6e1" class="s9"/><circle cx="305" cy="380" r="1.8" fill="#e8e6e1" class="s2"/><circle cx="268" cy="358" r="1.2" fill="#e8e6e1" class="s4"/>
+<line x1="240" y1="360" x2="255" y2="375" stroke="#e8e6e1" stroke-width=".4" opacity=".3"/><line x1="255" y1="375" x2="272" y2="385" stroke="#e8e6e1" stroke-width=".4" opacity=".3"/><line x1="272" y1="385" x2="290" y2="393" stroke="#e8e6e1" stroke-width=".4" opacity=".3"/><line x1="290" y1="393" x2="305" y2="380" stroke="#e8e6e1" stroke-width=".4" opacity=".3"/><line x1="272" y1="385" x2="282" y2="370" stroke="#e8e6e1" stroke-width=".4" opacity=".3"/><line x1="282" y1="370" x2="268" y2="358" stroke="#e8e6e1" stroke-width=".4" opacity=".3"/><line x1="268" y1="358" x2="240" y2="360" stroke="#e8e6e1" stroke-width=".4" opacity=".3"/>
+</g>
+<text x="272" y="418" text-anchor="middle" font-family="'Sora',sans-serif" font-weight="300" font-size="8" fill="#9a978f" letter-spacing="2" opacity=".5">PISCES</text>
+
+<!-- divider -->
+<line x1="325" y1="340" x2="325" y2="410" stroke="#c9a84c" stroke-width=".3" opacity=".15"/>
+
+<!-- Scorpio constellation (parent) -->
+<g opacity=".6">
+<circle cx="350" cy="368" r="1.8" fill="#c9a84c" class="s6" opacity=".8"/><circle cx="365" cy="358" r="2" fill="#c9a84c" class="s8" opacity=".8"/><circle cx="382" cy="375" r="2.5" fill="#c9a84c" class="s10" opacity=".9"/><circle cx="396" cy="388" r="1.6" fill="#c9a84c" class="s2" opacity=".7"/><circle cx="408" cy="398" r="1.8" fill="#c9a84c" class="s4" opacity=".8"/><circle cx="425" cy="405" r="2.2" fill="#c9a84c" class="s6" opacity=".85"/><circle cx="435" cy="398" r="1.5" fill="#c9a84c" class="s8" opacity=".7"/>
+<line x1="350" y1="368" x2="365" y2="358" stroke="#c9a84c" stroke-width=".4" opacity=".3"/><line x1="365" y1="358" x2="382" y2="375" stroke="#c9a84c" stroke-width=".4" opacity=".3"/><line x1="382" y1="375" x2="396" y2="388" stroke="#c9a84c" stroke-width=".4" opacity=".3"/><line x1="396" y1="388" x2="408" y2="398" stroke="#c9a84c" stroke-width=".4" opacity=".3"/><line x1="408" y1="398" x2="425" y2="405" stroke="#c9a84c" stroke-width=".4" opacity=".3"/><line x1="425" y1="405" x2="435" y2="398" stroke="#c9a84c" stroke-width=".4" opacity=".3"/>
+</g>
+<text x="392" y="430" text-anchor="middle" font-family="'Sora',sans-serif" font-weight="300" font-size="8" fill="#9a978f" letter-spacing="2" opacity=".5">SCORPIO</text>
+
+<text x="340" y="470" text-anchor="middle" font-family="'Noto Serif KR',serif" font-weight="600" font-size="18" fill="#e8e6e1" letter-spacing="8">김 은 서 · 장 은 정</text>
+<text x="340" y="525" text-anchor="middle" font-family="'Stylish',serif" font-size="15" fill="#9a978f" font-style="italic">"두 별이 만나는 자리, 그 사이에 흐르는 빛의 언어"</text>
+</svg>
+</div>
+
+<!-- ═══ 목차 (두 별이 점점 가까워짐) ═══ -->
+<!-- ═══ 목차 (3챕터, 별 아이콘) ═══ -->
+<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;margin:0 -24px;padding:40px 24px;">
+<div style="width:100%;max-width:420px;">
+<p style="font-family:'Sora',sans-serif;font-weight:200;font-size:11px;color:#9a978f;letter-spacing:6px;margin-bottom:48px;text-align:center;">CHAPTERS</p>
+<div style="display:flex;flex-direction:column;gap:40px;align-items:center;">
+
+<a href="#ch01" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:10px;">
+<svg width="100" height="50" viewBox="0 0 100 50"><polygon points="30.0,7.0 33.1,17.5 44.2,17.5 35.5,24.0 38.7,34.5 30.0,28.0 21.3,34.5 24.5,24.0 15.8,17.5 26.9,17.5" fill="#c9a84c" opacity=".9"/><circle cx="30" cy="20" r="2" fill="#f5e6b8" opacity=".7"/><polygon points="68.0,10.5 70.4,18.1 78.4,18.1 72.0,23.0 74.4,30.5 68.0,25.7 61.6,30.5 64.0,23.0 57.6,18.1 65.6,18.1" fill="#e8e6e1" opacity=".45"/><circle cx="68" cy="20" r="1.5" fill="#fff" opacity=".5"/></svg>
+<div style="font-family:'Noto Serif KR',serif;font-weight:600;font-size:15px;color:#e8e6e1;text-align:center;">1. 별의 온도 <span style="font-weight:400;color:#9a978f;">— 서로를 읽는 두 가지 렌즈</span></div>
+</a>
+
+<a href="#ch02" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:10px;">
+<svg width="100" height="50" viewBox="0 0 100 50"><polygon points="36.0,7.0 39.1,17.5 50.2,17.5 41.5,24.0 44.7,34.5 36.0,28.0 27.3,34.5 30.5,24.0 21.8,17.5 32.9,17.5" fill="#c9a84c" opacity=".9"/><circle cx="36" cy="20" r="2" fill="#f5e6b8" opacity=".7"/><polygon points="60.0,10.5 62.4,18.1 70.4,18.1 64.0,23.0 66.4,30.5 60.0,25.7 53.6,30.5 56.0,23.0 49.6,18.1 57.6,18.1" fill="#e8e6e1" opacity=".7"/><circle cx="60" cy="20" r="1.5" fill="#fff" opacity=".5"/></svg>
+<div style="font-family:'Noto Serif KR',serif;font-weight:600;font-size:15px;color:#e8e6e1;text-align:center;">2. 별의 언어 <span style="font-weight:400;color:#9a978f;">— 두 사람 사이의 연결 지도</span></div>
+</a>
+
+<a href="#ch03" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:10px;">
+<svg width="100" height="50" viewBox="0 0 100 50"><polygon points="42.0,7.0 45.1,17.5 56.2,17.5 47.5,24.0 50.7,34.5 42.0,28.0 33.3,34.5 36.5,24.0 27.8,17.5 38.9,17.5" fill="#c9a84c" opacity=".9"/><circle cx="42" cy="20" r="2" fill="#f5e6b8" opacity=".7"/><polygon points="55.0,10.5 57.4,18.1 65.4,18.1 59.0,23.0 61.4,30.5 55.0,25.7 48.6,30.5 51.0,23.0 44.6,18.1 52.6,18.1" fill="#e8e6e1" opacity=".9"/><circle cx="55" cy="20" r="1.5" fill="#fff" opacity=".5"/></svg>
+<div style="font-family:'Noto Serif KR',serif;font-weight:600;font-size:15px;color:#e8e6e1;text-align:center;">3. 별의 뿌리 <span style="font-weight:400;color:#9a978f;">— 이 엄마가 이 아이에게 줄 수 있는 것</span></div>
+</a>
+
+</div></div></div>
+<div class="divider"></div>
+<!-- ═══ CH01 · 별의 온도 ═══ -->
+<div id="ch01">
+<p class="label" style="margin-bottom:8px;">Chapter 01</p>
+<div class="chapter-title">별의 온도</div>
+<div class="chapter-sub">서로를 읽는 두 가지 렌즈</div>
+
+<p class="label">Section 1</p>
+<div class="section-title">은정 씨 눈에 비친 은서</div>
+
+<p class="body-text">은정 씨에게는 사람을 읽는 레이더가 있어요. 상대방이 뭔가를 숨기고 있으면 감지하고, 말과 행동이 다르면 즉시 포착하는 종류의 감각이에요. 이 레이더가 가장 안쪽 방에서 조용히 작동하기 때문에, 은정 씨가 뭔가를 파악했을 때 주변 사람들은 "어떻게 알았어?"라고 놀라요. 은정 씨 본인에게는 그냥 보이는 거예요.</p>
+
+<p class="body-text">이 감지 능력이 가족에게 향하면 더 예민해져요. 은정 씨의 감정의 뿌리가 가족 안에 깊이 박혀 있어서, 가족의 기분 변화를 자기 몸으로 느껴요. 은서가 학교에서 돌아왔을 때 현관문 여는 소리만으로 "오늘 컨디션이 안 좋구나"를 이미 읽고 있어요.</p>
+
+<p class="body-text">문제는 그 다음이에요. 은정 씨는 감지한 것을 그냥 놔두지 못하는 사람이거든요. 읽어낸 것에 대해 책임을 느끼고, 뭔가를 해주고 싶어져요. 그래서 은서에게 다가가요 — "무슨 일 있었어?" "표정이 안 좋은데?" 은정 씨 입장에서는 당연한 다음 단계예요.</p>
+
+<p class="body-text">근데 은서는 이 순간 전혀 다른 경험을 하고 있어요. 은서의 감정은 물감이 물에 퍼지듯 천천히 번져가요. 학교에서 있었던 일이 슬픔인지, 억울함인지, 아니면 그냥 피곤한 건지 — 은서 자신도 아직 구분을 못 한 상태예요. 여러 느낌이 한꺼번에 있고, 그게 하나로 정리되려면 시간이 필요해요. 그런데 엄마가 "무슨 일 있었어?"라고 물으면, 아직 형태가 안 잡힌 감정에 이름을 붙여야 하는 상황이 돼요. 그래서 나오는 대답이 "아무것도 아니야"예요.</p>
+
+<div class="card-pattern">
+<span class="card-icon">🔄</span>
+<div class="card-title">감지와 회피의 엇갈림</div>
+<p>은서가 풀이 죽어서 들어옴 → 은정 씨의 레이더 즉시 작동 → "무슨 일 있었어?" → 은서는 아직 자기 감정의 형태를 모름 → "아무것도 아니야" → 은정 씨는 '숨기는 거다'로 해석 → 더 파고듦 → 은서는 벽을 세움 → 은정 씨는 서운 → 은서는 "왜 기다려주지 않는 거야"가 말로 안 나옴</p>
+</div>
+
+<div class="section-title" style="margin-top:40px;">가장 오해하기 쉬운 것</div>
+
+<p class="body-text">"이 아이는 속을 안 보여준다." 은서가 마음을 닫는 것처럼 보이지만, 실제로는 닫은 게 아니에요. 은서의 감정이 여러 색이 섞인 상태로 존재하기 때문에, "기분이 어때?"라는 질문에 하나의 색을 골라서 대답하는 게 어려운 거예요.</p>
+
+<p class="body-text">"이 아이는 우유부단하다." 은서가 결정을 오래 하는 건 맞아요. 그런데 이유가 달라요. 은정 씨는 핵심을 꿰뚫고 하나를 고르는 데 뛰어나요. 은서는 모든 선택지의 입장이 동시에 보여요. A를 고르면 B가 상처받을 것 같고, B를 고르면 A에게 미안하고. 결단력이 없는 게 아니라, 보이는 것이 너무 많은 거예요.</p>
+
+<p class="body-text">"이 아이는 현실 감각이 부족하다." 은서가 멍하니 있거나 엉뚱한 이야기를 할 때, 은정 씨는 "이 아이가 또 딴 세상에 가 있네"라고 느낄 수 있어요. 그런데 은서의 머릿속은 그 순간 아주 바빠요. 빠르고 넓게 생각이 뻗어나가는 중인데, 그 속도가 입을 앞질러서 말이 중간에 방향을 바꾸는 거예요.</p>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 2</p>
+<div class="section-title">은서 눈에 비친 엄마</div>
+
+<p class="body-text">은서에게 엄마는 날씨 같은 존재예요. 집이라는 공간의 온도, 습도, 바람의 방향을 엄마가 결정해요. 엄마의 기분이 좋으면 집이 따뜻하고, 엄마가 지쳐 있으면 집에 찬 기운이 돌고, 엄마가 걱정하면 집 전체가 흐려져요. 은서는 현관문을 열기 전에 이미 오늘의 '집 날씨'를 감지하고 있어요.</p>
+
+<p class="body-text">이건 은서가 눈치를 보는 게 아니에요. 엄마의 에너지가 은서의 가정 영역 위에 여러 겹으로 쌓여 있는 구조라서, 엄마의 상태가 은서에게는 '집의 상태'로 직접 변환돼요. 그래서 은서는 자기 이야기를 꺼내기 전에 먼저 '오늘의 집 날씨'를 확인해요. 엄마가 괜찮은 상태인지, 지금 말해도 되는 타이밍인지. 이 계산이 먼저 돌아가고, 그 다음에야 자기 이야기가 나와요.</p>
+
+<p class="body-text">또 하나. 은정 씨가 뭔가를 지적하거나 평가할 때, 은서에게는 그 말이 '날씨 변화'로 느껴져요. "시험 어땠어?"라는 질문조차 은서에게는 기온이 떨어지는 느낌이에요 — 엄마가 판단 모드로 들어갔다는 신호니까요.</p>
+
+<div class="box box-warn">
+<span class="box-label">주의</span>
+<p>은서의 감정이 은정 씨의 가장 깊은 내면 영역으로 들어가 있어요. 은서가 불안할 때 은정 씨가 "오늘 왜 이렇게 가슴이 답답하지?" 느끼는 건 은서의 감정이 은정 씨의 인식 밖에서 작동하고 있기 때문이에요.</p>
+</div>
+
+<div class="section-title" style="margin-top:40px;">은서가 말 못 하는 것</div>
+
+<p class="body-text">은서가 가장 원하는 건 "분위기가 변하지 않는 것"이에요. 자기가 뭔가를 말했을 때 집의 날씨가 바뀌지 않는 것. "시험 망했어"라고 말해도 엄마 표정이 안 변하는 것. 그게 안 될 것 같으면 은서는 말을 안 해요.</p>
+
+<p class="body-text">말 못 하는 건 이거예요: <strong>"엄마, 엄마가 걱정하는 표정 지으면 나는 그 걱정이 내 탓인 것 같아서 더 힘들어져."</strong> 그리고 <strong>"엄마가 모든 걸 알아차리는 게 무서울 때가 있어. 나만의 비밀이 없는 것 같아."</strong></p>
+
+<div class="box box-fate">
+<span class="box-label">은서의 번역표</span>
+<p>"아무것도 아니야" = "내 감정이 아직 형태가 없어서 말할 수가 없어."<br>"괜찮아" = "이걸 말하면 집 분위기가 바뀔까 봐."<br>"몰라" = "여러 느낌이 동시에 있어서 하나를 고를 수가 없어."</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 3</p>
+<div class="section-title">은서의 작동 방식</div>
+
+<p class="body-text"><strong>감정이 안정되는 조건</strong></p>
+
+<p class="body-text">은서의 감정은 주변 분위기에 직접 반응해요. 집 안이 조용하고 평화로우면 은서도 안정되고, 누가 목소리를 높이거나 긴장이 흐르면 은서의 몸이 먼저 경직돼요. 은서는 갈등의 당사자가 아닌데도, 갈등이 있는 공간에 있으면 "내가 뭔가 잘못한 건 아닌가" 하는 생각이 자동으로 돌아가요.</p>
+
+<div class="box box-money">
+<span class="box-label">안정을 주는 것들</span>
+<p>• <strong>평화로운 집 안 분위기</strong> — 갈등이 없다는 것 자체가 은서에게는 사랑의 증거<br>• <strong>아무 말 없이 옆에 있는 시간</strong> — "뭐 해?"도 "괜찮아?"도 없이 그냥 같은 공간에 존재하기<br>• <strong>은서가 정한 자기만의 공간</strong> — 방 배치를 바꾸거나 자기 물건을 정리하는 건 정서 안정 도구<br>• <strong>아름다운 것과의 접촉</strong> — 예쁜 카페, 잘 꾸며진 공간, 좋은 음악</p>
+</div>
+
+<div class="box box-warn">
+<span class="box-label">무너지는 조건</span>
+<p>• <strong>엄마의 실망</strong> — 다른 감정은 견딜 수 있는데, 엄마가 자기에게 실망한 것 같은 느낌은 은서에게 땅이 꺼지는 거예요<br>• <strong>은정 씨의 침묵</strong> — 은정 씨가 안에서 생각하는 중일 때, 은서에게는 그 침묵이 "엄마가 나에 대해 결론을 내리고 있다"로 변환돼요<br>• <strong>갈등이 있는 공간</strong> — 은서가 당사자가 아닌데도, 긴장이 있으면 "내가 뭔가 잘못한 건 아닌가" 하는 생각이 자동으로 돌아가요</p>
+</div>
+
+<div class="box box-fate">
+<span class="box-label">배우는 방식</span>
+<p>은서는 전체 그림을 먼저 잡는 아이예요. 나무가 아니라 숲을 먼저 보고, 느낌으로 이해한 다음, 세부를 나중에 채워요. "왜?"에 대한 답이 없으면 의지가 꺼져요. 말하면서 생각을 정리하는 타입이라, 혼자 조용히 공부하는 것보다 누군가에게 설명하듯 말하면 이해가 깊어져요. 재밌는 건, 은정 씨가 분석 모드가 아니라 대화 모드일 때 은서의 사고가 확장돼요. 같은 공간에 있는 것만으로도 효과가 있어요.</p>
+</div>
+
+<div class="box box-money">
+<span class="box-label">공부가 되는 조건</span>
+<p>• 집 분위기가 안정적일 때 공부 효율이 올라가요 — 부모 사이 긴장은 성적에 직접 영향<br>• 전체 지도를 먼저 — 목차부터 훑고 흐름 파악 후 세부로<br>• "왜?"에 답이 먼저 — 이유가 납득되면 스스로 움직여요<br>• "이것만 고치면 되는데" 대신 "여기까지 잘 왔는데, 이 부분만 더 보면 어떨까"</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 3-B</p>
+<div class="section-title">은서의 에너지가 표현되는 방식</div>
+
+<p class="body-text">은서의 행동 에너지는 조용하고 정밀해요. 폭발적으로 터지는 타입이 아니라, 한 땀 한 땀 쌓아가는 타입이에요. 노트 정리를 예쁘게 하고, 방을 깔끔하게 유지하고, 자기 물건을 체계적으로 관리하는 것 — 이런 데서 에너지가 나와요.</p>
+
+<p class="body-text">문제는 이 에너지가 자기 가치와 직결되어 있다는 거예요. "내가 한 것이 좋은 결과를 냈다 = 나는 가치 있는 사람이다"로 작동해요. 결과가 안 나오면 에너지 자체가 꺼져요. 여기에 분위기를 맞추려는 성향이 합쳐지면: 잘하고 싶은데 → 잘 못 하면 엄마가 실망할까? → 차라리 안 하는 게 나을까? → 시작을 못 함. 근데 막상 시작하면 디테일에 강하고 결과물이 정교해요.</p>
+
+<p class="body-text">재밌는 건, 엄마의 행동 방식도 같은 형태라는 거예요. 두 사람의 실행 에너지가 아주 가까이 맞물려 있어요. 같이 정리하거나 만들 때 의외로 호흡이 잘 맞는 이유가 이거예요.</p>
+
+<div class="box box-rose" style="margin-top:32px;">
+<span class="box-label">14살인 지금</span>
+<p>은서의 미적 감각이 바깥으로 나오기 시작하는 시기예요. 방을 자기 취향으로 꾸미고 싶어하고, 자기만의 스타일을 찾으려 해요. 이건 허영이 아니에요 — 은서가 세상에서 자기를 표현하는 핵심 통로예요. "그런 거 사서 뭐 해?"보다 "이번엔 어떤 걸 골랐어?"가 은서의 정체성을 지지하는 말이에요.</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 4</p>
+<div class="section-title">은서가 빛나는 순간</div>
+
+<div class="card-strength">
+<div class="strength-num"><span style="font-size:11px;display:block;margin-bottom:2px;opacity:.6;">재능</span>01</div>
+<div class="strength-body">
+<div class="strength-title">스며드는 공감</div>
+<p>은서는 상대방의 감정을 '이해'하는 게 아니라 '체험'해요. 친구가 슬플 때 "왜 슬퍼?"가 아니라 같이 슬퍼지고, 그 슬픔의 결을 정확히 느껴요. 이건 훈련으로 만들 수 없는 타고난 주파수예요.</p>
+</div></div>
+
+<div class="card-strength">
+<div class="strength-num"><span style="font-size:11px;display:block;margin-bottom:2px;opacity:.6;">재능</span>02</div>
+<div class="strength-body">
+<div class="strength-title">공간을 읽는 눈</div>
+<p>색 배합이 어색하면 몸이 불편하고, 공간이 잘 정돈되면 마음이 풀리는 아이예요. 단순한 취향이 아니라 미적 기준이 뚜렷하고, 거기에 확장하는 기질까지 합쳐져 있어서 이 감각이 큰 스케일로 발전할 수 있어요.</p>
+</div></div>
+
+<div class="card-strength">
+<div class="strength-num"><span style="font-size:11px;display:block;margin-bottom:2px;opacity:.6;">재능</span>03</div>
+<div class="strength-body">
+<div class="strength-title">수면 아래의 감각</div>
+<p>"왠지 그 사람 이상해." 은서가 이렇게 말하면, 한참 뒤에 진짜 뭔가가 나와요. 논리로 설명 못 하는데 맞는 감이 있어요. 은정 씨의 '보이는 것을 꿰뚫는 힘'과 합쳐지면 아무도 못 속이는 팀이 돼요.</p>
+</div></div>
+
+<p class="body-text" style="margin-top:24px;"><strong>빛나는 순간</strong></p>
+<ul style="list-style:none;padding:0;margin:12px 0 20px;">
+<li class="body-text" style="margin-bottom:8px;">• 힘든 친구 옆에 조용히 앉아 있어줬더니 "네가 있어서 괜찮았어"라고 했을 때</li>
+<li class="body-text" style="margin-bottom:8px;">• 방을 새로 꾸미고 나서 결과물을 보며 뿌듯할 때</li>
+<li class="body-text" style="margin-bottom:8px;">• 직감이 맞아떨어졌을 때 — "내가 느낀 게 진짜였어"</li>
+<li class="body-text" style="margin-bottom:8px;">• 은정 씨가 <strong>"은서야, 아까 그 색 조합 진짜 센스 있더라"</strong> 구체적으로 말해줬을 때</li>
+</ul>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 5</p>
+<div class="section-title">아직 피어나지 않은 것들</div>
+
+<div class="card-pattern">
+<span class="card-icon">🌱</span>
+<div class="card-title">자기 의견을 '분위기 파괴' 없이 말하기</div>
+<p>은서는 자기 의견이 없는 게 아니에요. 있는데, 그걸 말하면 분위기가 바뀔 것 같아서 참아요. "나는 이게 싫어"를 말해도 집의 온도가 안 변한다는 경험이 쌓이면, 이 잠금이 서서히 풀려요.</p>
+</div>
+
+<div class="card-pattern">
+<span class="card-icon">🌱</span>
+<div class="card-title">남의 감정과 내 감정 구분하기</div>
+<p>공감 능력이 강한 만큼, 친구의 슬픔이 은서 안에 들어와서 자기 슬픔과 구분이 안 되는 경우가 생겨요. "이 무거운 느낌이 내 거야, 아니면 다른 사람에게서 온 거야?"를 구분하는 연습.</p>
+</div>
+
+<div class="card-pattern">
+<span class="card-icon">🌱</span>
+<div class="card-title">완벽하지 않아도 시작하기</div>
+<p>결과가 자기 가치와 직결되어 있어서, "못하면 어쩌지?"가 시작을 막아요. 80%에서 출발해도 된다는 경험이 쌓이면, 은서의 정교한 디테일 감각이 나머지 20%를 채워요.</p>
+</div>
+
+<div class="box box-money" style="margin-top:28px;">
+<span class="box-label">은정 씨가 해줄 수 있는 것</span>
+<p>은정 씨의 레이더는 은서를 정확하게 읽어요. 문제는 그 다음이에요. 읽어낸 걸 "해결책"이 아니라 "기다림"으로 바꿔보세요. 알아차렸더라도 모른 척하는 여유. "뭔가 있지?"보다 "엄마 여기 있어"가 은서에게는 훨씬 안전한 메시지예요. 그리고 은서가 완벽주의로 시작을 못 할 때 — "그 정도면 이미 잘하고 있는 거야"가 은서의 잠금을 푸는 열쇠예요.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+<div id="ch02">
+<p class="label" style="margin-bottom:8px;">Chapter 02</p>
+<div class="chapter-title">별의 언어</div>
+<div class="chapter-sub">두 사람 사이의 연결 지도</div>
+
+<div class="section-title" style="margin-top:24px;margin-bottom:4px;">잘 통하는 연결</div>
+<p class="muted" style="font-size:13px;margin-bottom:20px;">말 없이 통하는 감정 · 손으로 만드는 시간</p>
+
+<div class="section-title" style="margin-top:8px;margin-bottom:4px;">엇갈리는 연결</div>
+<p class="muted" style="font-size:13px;margin-bottom:20px;">사랑의 무게 차이 · 속도의 충돌 · 규칙 앞에서 닫히는 입</p>
+
+<div class="section-title" style="margin-top:8px;margin-bottom:4px;">깊은 연결 / 주의 지점</div>
+<p class="muted" style="font-size:13px;margin-bottom:32px;">감정이 스며드는 경로 · 집의 온도를 지배하는 구조</p>
+
+<div class="divider-gold"></div>
+
+<div class="section-title">잘 통하는 연결 ①</div>
+<div class="section-title" style="margin-top:-8px;font-size:15px;color:#9a978f;">말 없이 통하는 순간</div>
+
+<p class="body-text">이 두 사람은 말을 안 해도 서로의 상태를 느끼는 채널이 열려 있어요. 은정 씨의 감정 뿌리가 가족에 깊이 박혀 있고, 은서의 감각이 분위기를 읽는 쪽으로 발달해 있어서 — 두 사람이 같은 방에 있으면 감정이 조용히 오가요.</p>
+
+<p class="body-text">은서가 뭔가를 예쁘게 만들었을 때 — 노트를 꾸미거나, 방을 정리하거나, 그림을 그렸을 때 — 은정 씨에게 보여주면 은정 씨의 마음이 풀려요. 은서의 미적 감각과 은정 씨의 감정 뿌리가 아주 정밀하게 맞물려 있거든요. 이 연결이 가장 잘 작동하는 순간은 두 사람이 아무런 목적 없이 같은 공간에 있을 때예요.</p>
+
+<div class="box box-money">
+<span class="box-label">이 채널 여는 법</span>
+<p>• 같은 공간에서 각자 하기 — 대화를 계획하지 마세요. 그냥 함께 있으세요<br>• 은서가 뭔가를 만들거나 꾸몄을 때 "어, 이거 좋다" 한마디<br>• 미술관이나 전시를 같이 가세요 — "이건 뭐라고 생각해?"가 두 사람의 가장 좋은 주파수를 열어요</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<div class="section-title">잘 통하는 연결 ②</div>
+<div class="section-title" style="margin-top:-8px;font-size:15px;color:#9a978f;">손으로 만드는 시간</div>
+
+<p class="body-text">은정 씨의 실행 방식과 은서의 실행 방식이 놀라울 만큼 비슷해요. 꼼꼼하고, 체계적이고, 빠짐없이 처리하는 것 — 이 영역에서 두 사람은 같은 리듬으로 움직여요. 같이 요리하거나, 집을 정리하거나, 뭔가를 조립할 때 말없이 호흡이 맞아요. 핵심은 은정 씨가 "지시하는 모드"가 아니라 "같이 하는 모드"일 때예요.</p>
+
+<div class="box box-money">
+<span class="box-label">같이 만드는 시간</span>
+<p>• 주말에 같이 요리 — 은정 씨가 레시피, 은서가 플레이팅. 각자 강점이 살아요<br>• 계절마다 방 재배치를 같이 — 은서의 공간 감각이 활성화되는 시간<br>• 결과물을 사진 찍어 남기세요 — "우리가 이걸 만들었다"는 기록이 관계 저축이에요</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<div class="section-title">엇갈리는 연결 ①</div>
+<div class="section-title" style="margin-top:-8px;font-size:15px;color:#9a978f;">사랑의 무게가 다른 곳</div>
+
+<p class="body-text">은정 씨의 사랑은 무게가 있어요. 꼼꼼하게 챙기고, 빠진 건 없는지 확인하고, 더 나은 환경을 만들어주는 것. 은정 씨에게 사랑은 "제대로 해줌"이에요.</p>
+
+<p class="body-text">은서가 받고 싶은 사랑은 무게가 아니라 온도예요. 옆에 있어주는 것. 뭘 해주지 않아도, 뭘 고치지 않아도, 그냥 같이 앉아 있는 것. 은서에게 사랑의 증거는 "엄마가 편안한 얼굴로 옆에 있다"는 거예요.</p>
+
+<div class="card-pattern">
+<span class="card-icon">🔄</span>
+<div class="card-title">시험 기간의 엇갈림</div>
+<p>시험 기간에 은정 씨는 간식을 준비하고, 시간표를 짜주고, 조용한 환경을 만들어요. 은정 씨의 사랑이 총동원된 거예요. 은서는 그 모든 준비를 받으면서 "엄마가 이만큼 해줬으니까 결과를 내야 한다"는 압박을 느껴요. 실제로 은서가 원했던 건 시험 전날 엄마랑 아무 말 없이 나란히 앉아 있는 것이에요.</p>
+</div>
+
+<div class="box box-money">
+<span class="box-label">사랑의 온도 맞추기</span>
+<p>• 챙김의 양을 줄이고 함께 있는 시간을 늘리세요 — 간식을 만들어주는 대신 같이 앉아서 각자 하기<br>• 은서가 아무 말 없이 옆에 오면 그게 사랑을 요청하는 거예요 — "왜?"라고 묻지 말고 그냥 받아주세요<br>• "잘하고 있어"를 결과 전에 말해주세요 — 결과 후에 하면 조건부 사랑으로 들려요</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<div class="section-title">엇갈리는 연결 ②</div>
+<div class="section-title" style="margin-top:-8px;font-size:15px;color:#9a978f;">고집이 부딪히는 곳</div>
+
+<p class="body-text">은정 씨와 은서는 둘 다 한번 마음먹으면 안 바꾸는 사람이에요. 은정 씨의 강한 에너지가 은서의 가정 영역을 직접 누르는 구조까지 합쳐지면 — 은서는 엄마가 뭔가를 말하면 내용과 상관없이 본능적으로 밀어내요. 겉으로는 순하지만 안으로는 완강해요. 동의한 규칙은 지키지만 일방적으로 부과된 건 소리 없이 저항해요. 이게 한계에 도달하면 어느 날 갑자기 "엄마는 맨날 혼자 정해놓고!" 하고 터져요.</p>
+
+<div class="box box-fate">
+<span class="box-label">여는 법</span>
+<p>"내가 맞으니까 따라"를 "나는 이렇게 생각하는데, 너는?"으로. 은정 씨가 한 발 빼주면 은서의 방어가 내려가요. 은정 씨의 내면 분석 결과를 "결론"이 아니라 "질문"으로 내보내면, 같은 내용도 완전히 다르게 전달돼요.</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<div class="section-title">엇갈리는 연결 ③</div>
+<div class="section-title" style="margin-top:-8px;font-size:15px;color:#9a978f;">규칙이 닿는 방식</div>
+
+<p class="body-text">은서는 규칙의 '이유'가 필요한 아이예요. "하라니까 해"보다 "이래서 이렇게 하는 거야"가 10배 잘 먹혀요. 은정 씨가 단호하게 규칙을 세우면, 은서의 감정이 먼저 닫혀요. 수긍한 게 아니라 입이 막힌 거예요. 이게 반복되면 "엄마 앞에서는 말해도 소용없어"로 굳어져요.</p>
+
+<div class="box box-money">
+<span class="box-label">야단 전에 읽으세요</span>
+<p>• 지적 전에 인정이 먼저 — "이 부분은 잘했는데, 여기만 보자." 이 순서가 전부<br>• 야단 뒤 엄마가 먼저 한마디 — "아까 엄마도 좀 세게 말했어." 이 한마디에 은서는 즉시 문을 열어요<br>• 규칙의 이유를 먼저 설명하고, "이것에 대해 네 생각은?"으로 말문을 열어주세요<br>• 은정 씨가 한번 던진 말의 무게를 과소평가하지 마세요 — 은정 씨가 잊은 한마디를 은서는 몇 달째 안고 있을 수 있어요</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<div class="section-title">깊은 연결</div>
+<div class="section-title" style="margin-top:-8px;font-size:15px;color:#9a978f;">보이지 않는 곳에서 닿는 에너지</div>
+
+<p class="body-text">이 관계에서 가장 조심스럽지만 가장 중요한 이야기예요.</p>
+
+<p class="body-text">은정 씨의 감정이 은서의 가장 깊은 변화의 지점에 닿아 있어요. 엄마가 걱정하면 은서는 단순히 "엄마가 걱정하네"가 아니라, 자기 안의 무언가가 뒤틀리는 느낌을 받아요. 반대 방향도 작동해요. 은서의 감정이 은정 씨의 가장 깊은 내면으로 흘러들어가요. 은서가 힘들면 은정 씨는 의식하기 전에 몸이 먼저 무거워져요.</p>
+
+<p class="body-text">그리고 은정 씨의 에너지가 은서의 가정 기반 위에 여러 겹으로 쌓여 있다는 건 — 은정 씨가 사랑을 더 많이 쏟을수록 은서의 기반이 더 무거워질 수 있다는 뜻이에요. 보호가 통제로, 걱정이 압박으로 변환되는 지점이 있어요.</p>
+
+<div class="box box-rose">
+<span class="box-label">이 관계의 진실</span>
+<p>이 깊은 연결들은 전부 사랑의 증거예요. 이렇게 스며드는 건 서로에게 중요하기 때문이에요. 다만 스며드는 만큼, "이 감정이 내 것인지, 상대에게서 온 것인지"를 가끔 점검해야 해요.</p>
+</div>
+
+<div class="section-title" style="margin-top:48px;">2026 은서의 내면 공사</div>
+
+<div class="card-transit" style="margin-top:16px;">
+<div class="transit-label">지금 은서 안에서 일어나는 일</div>
+<p>두 가지 큰 변화가 동시에 진행 중이에요. 첫째, 사고와 소통 방식이 전면 재정비되고 있어요. 기존에 빠르고 즉흥적이던 은서의 생각에 무게감이 실리는 중이에요. 말을 꺼내기 전에 더 오래 생각하고, 한 번 꺼낸 말에 대해 뒤돌아서 곱씹어요. 말수가 줄었다면 이게 이유예요. 둘째, 가치관이 근본적으로 바뀌고 있어요. 예전에 좋다고 했던 것이 유치하게 느껴지고, 새로운 기준을 세우는 중이에요. "갑자기 달라졌다"거나 "뭔가 흐릿해 보인다"면 그게 정확히 지금 일어나는 일이에요.</p>
+</div>
+
+<div class="section-title" style="margin-top:40px;">2026년 봄 — 은정 씨</div>
+
+<div class="card-transit" style="margin-top:16px;">
+<div class="transit-label">은정 씨에게 일어나는 일</div>
+<p>확장의 에너지가 은정 씨의 정체성을 자극하고 있어서, "나는 엄마라는 역할 너머에 뭐가 있지?"라는 감각이 올라오는 시기. 동시에 지금까지 져왔던 사회적 책임들에 대해 "이걸 다 내가 해야 해?"라는 의문이 강하게 올라오고 있어요. 이건 나쁜 게 아니에요 — 기존의 양육 방식을 재점검하라는 신호예요.</p>
+</div>
+
+<div class="box box-money">
+<span class="box-label">이것만 바꾸면</span>
+<p>챙기고 싶을 때 한 박자 쉬고 "지금 이게 필요한 건 나인가 은서인가?" 자문하세요. 은정 씨의 내면 분석이 "은서를 위해"라고 결론 내도, 실제로는 은정 씨 자신의 불안을 해소하기 위한 경우가 있어요. 이 구분이 되면 사랑의 무게가 적정선이 돼요. 그리고 은서가 이유 없이 짜증을 낼 때 — "이유 없는 게 아니라 무의식에서 느끼고 있구나"로 읽어주세요.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+<div id="ch03">
+<p class="label" style="margin-bottom:8px;">Chapter 03</p>
+<div class="chapter-title">별의 뿌리</div>
+<div class="chapter-sub">이 엄마가 이 아이에게 줄 수 있는 것</div>
+
+<p class="label">Section 1</p>
+<div class="section-title">지금 이 순간 — 14세, 2026년 봄</div>
+
+<p class="body-text">이 두 사람의 과제: <strong>"은정 씨의 레이더를 끄는 게 아니라, 읽어낸 것을 전달하는 경로를 바꾸기."</strong></p>
+
+<p class="body-text">은정 씨의 감지 능력은 이 관계의 가장 큰 자산이에요. 은서에게 뭔가 있다는 걸 정확히 읽어요. 문제는 읽어낸 다음의 행동이에요 — 다가가서 확인하고, 원인을 파악하고, 해결책을 제시하는 것. 이 경로가 은서에게는 "침투"로 느껴져요. 같은 감지 능력을 "기다림"으로 보내면 — 알아차렸지만 은서가 먼저 꺼낼 때까지 옆에 있는 것 — 은서는 그때 스스로 입을 열어요.</p>
+
+<div class="box box-money">
+<span class="box-label">오늘부터</span>
+<p>• <strong>귀가 후 은서에게 먼저 말 걸지 않기</strong> — 은서가 먼저 말을 꺼내면 그때 받아주세요<br>• <strong>은서의 방문이 닫혀 있으면 노크하지 않기</strong> — 거부가 아니라 정서 정리 시간<br>• <strong>주말에 같이 손 쓰는 시간 만들기</strong> — 요리, 정리, 꾸미기. 대화를 목적으로 하지 마세요<br>• <strong>"요즘 뭐가 재밌어?"를 한 달에 한 번</strong> — 은서의 취향 변화에 호기심을 보여주세요<br>• <strong>은정 씨 자신의 관심사에 시간 쓰기</strong> — 은서에게 100% 쏟는 것보다 은정 씨가 자기 세계에 몰입해 있는 모습이 더 큰 선물이에요</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 1-B</p>
+<div class="section-title">14살이 진짜로 겪는 것</div>
+
+<p class="body-text"><strong>입시:</strong> 은서의 사고력은 집 분위기에 직접 연결되어 있어요. 집이 안정적일 때 머리가 돌아가고, 긴장이 있으면 공부 이전에 "집이 괜찮은가?"를 먼저 해결하려 해요. 지금 사고방식 자체가 재정비 중이라 성적이 일시적으로 흔들릴 수 있어요 — 능력 문제가 아니에요. "왜 이것밖에 못 받았어?" 대신 "어떤 부분이 어려웠어?"로요.</p>
+
+<p class="body-text"><strong>친구:</strong> 은서는 친구들이 싸우면 나서서 중재하는 타입이 아니에요. 오히려 조용해져요. 양쪽 입장이 동시에 보이기 때문에 어느 편도 못 들고, 두 사람의 감정을 다 흡수해서 자기 안에서 뒤섞여요. 집에 와서 풀이 죽어 있는데 이유를 물으면 "몰라, 그냥 피곤해"라고 해요 — 실은 친구들의 감정을 온종일 안고 있었던 거예요. "혹시 오늘 주변에서 힘든 일이 있었어?"라고 물어봐 주면 큰 도움이 돼요.</p>
+
+<p class="body-text"><strong>첫 감정:</strong> 은서의 사랑 방식은 분위기와 아름다움 중심이에요. 상대가 편한 상태를 만들어주는 것이 은서의 사랑 표현. 문제는 자기 감정보다 상대 감정을 먼저 관리하려 한다는 거예요 — 엄마와의 관계에서 배운 패턴이에요. 이 주제가 나오면 "상대가 좋아하는 것도 중요한데, 네가 좋은 것도 중요해"를 주세요.</p>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 2</p>
+<div class="section-title">앞으로의 여정</div>
+
+<div class="timeline">
+<div class="timeline-item now">
+<div class="timeline-year">14세 · 지금 — 감각의 재정비</div>
+<div class="timeline-desc">사고방식과 가치관이 동시에 바뀌는 중. 말수가 줄고 취향이 급변해요. 은서 자신도 자기 변화가 낯설어요. 은정 씨에게 필요한 것: 분석 엔진을 끄고 옆에 있는 연습.</div>
+</div>
+<div class="timeline-item future">
+<div class="timeline-year">15–18세 · 자기 기준의 확립</div>
+<div class="timeline-desc">미적 감각과 가치관이 뚜렷해지면서 엄마와 의견이 달라져요. 이걸 반항이 아니라 독립으로 읽어주세요. 공감 능력이 깊어지면서 친구의 감정을 짊어지는 패턴이 강해져요. "그건 네가 감당할 몫이 아니야"를 반복해 주세요.</div>
+</div>
+<div class="timeline-item future">
+<div class="timeline-year">19–22세 · 거리가 만드는 가벼움</div>
+<div class="timeline-desc">물리적 분리가 시작되면, 은정 씨의 에너지가 은서의 가정 기반을 직접 누르는 구조가 약해져요. 역설적으로 떨어져야 가까워지는 구조. 전화로 가벼운 안부를 주고받을 때 — 은서가 처음으로 "엄마랑 이야기하는 게 편하다"를 느낄 수 있어요.</div>
+</div>
+<div class="timeline-item future">
+<div class="timeline-year">23–26세 · 감사의 시작</div>
+<div class="timeline-desc">사회에서 부딪히면서 은정 씨에게 받은 것들의 가치를 알아가요. 은서가 먼저 조언을 구하기 시작 — 은정 씨의 분석력이 비로소 "환영받는 도움"이 돼요.</div>
+</div>
+<div class="timeline-item future">
+<div class="timeline-year">27세 이후 · 나란히 걷는 관계</div>
+<div class="timeline-desc">은정 씨의 깊이 + 은서의 공감력이 만나면, 말하지 않아도 통하는 관계가 완성돼요. 이 관계의 황금기. 지금의 모든 엇갈림이 이때를 위한 토양이에요.</div>
+</div>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 3</p>
+<div class="section-title">이 관계의 방향</div>
+
+<p class="body-text">은정 씨가 은서에게 자연스럽게 심어주는 것: 겉과 속이 다를 때 진짜를 가려내는 눈, 끝까지 파는 끈기, 사람의 진심을 느끼는 능력. 은정 씨의 감지력은 은서가 어른이 되었을 때 "엄마에게 배운 가장 큰 것"이 될 거예요. 그리고 실행력 — 같은 방식으로 일하는 법을 은서는 엄마에게서 직접 흡수하고 있어요.</p>
+
+<p class="body-text">은정 씨가 주기 어려운 것: 판단 없이 흘러가게 두는 것. 결론 없이 듣는 것. 알아차렸는데 모른 척하는 것. 이건 은정 씨의 감지 능력과 정반대 방향이에요. 모든 부모가 다 줄 수는 없어요. 그 간극은 친구, 또래, 혼자만의 시간이 채워줘요.</p>
+
+<div class="box box-fate">
+<span class="box-label">핵심</span>
+<p>은정 씨가 자기 삶을 충실하게 사는 것이 은서에게 줄 수 있는 가장 큰 선물이에요. 은정 씨가 무언가에 몰입해 있는 모습 — 일이든, 관심사든, 자기만의 시간이든 — 그게 은서에게 "자기 세계를 갖는다는 건 이런 거구나"를 가르쳐요. 은서에게 100% 향하는 레이더보다, 은정 씨 자신을 향하는 에너지가 더 커요.</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 4</p>
+<div class="section-title">이 관계만의 에너지</div>
+
+<p class="body-text"><strong>가장 좋은 순간:</strong> 같이 뭔가를 만들고 있을 때예요. 말을 안 해도 되고, 각자 자기 몫을 하면서 가끔 결과물을 보여주고. 이때 두 사람의 실행 에너지가 같은 리듬으로 작동하고, 은서의 미적 감각이 은정 씨의 실용적 감각과 만나요.</p>
+
+<p class="body-text"><strong>가장 힘든 순간:</strong> 은정 씨가 은서의 상태를 정확히 읽었는데, 은서가 "아무것도 아니야"로 막는 순간. 은정 씨는 '내가 이만큼 알고 있는데 왜 안 열어?'이고, 은서는 '엄마가 알고 있다는 것 자체가 숨 막혀'인 순간.</p>
+
+<div class="box box-fate" style="margin-top:20px;">
+<span class="box-label">기억해 주세요</span>
+<p>이 관계의 열쇠는 역설이에요 — 은정 씨가 한 발 물러설수록 은서가 한 발 다가와요. 감지했는데 기다리면, 은서가 스스로 열어요. 챙기고 싶은데 참으면, 은서가 먼저 와요. 은정 씨의 감지 능력은 끌 필요 없어요 — 감지 후의 행동을 "다가감"에서 "있어줌"으로 바꾸면 돼요.</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 5</p>
+<div class="section-title">은서의 직업 성향</div>
+
+<div class="card-strength">
+<div class="strength-num"><span style="font-size:11px;display:block;margin-bottom:2px;opacity:.6;">방향</span>01</div>
+<div class="strength-body">
+<div class="strength-title">감각으로 사람을 돕는 영역</div>
+<p>상담, 심리, 예술치료, 힐링 공간 기획. 은서의 공감 능력 + 미적 감각이 가장 직접적으로 쓰이는 방향. 사람의 마음을 아름답게 감싸는 것 — 은서의 핵심 재능이에요.</p>
+</div></div>
+
+<div class="card-strength">
+<div class="strength-num"><span style="font-size:11px;display:block;margin-bottom:2px;opacity:.6;">방향</span>02</div>
+<div class="strength-body">
+<div class="strength-title">보이는 것을 아름답게 만드는 영역</div>
+<p>디자인, 공간 기획, 브랜딩, 인테리어. 은서의 미적 기준이 뚜렷하고, 확장하는 기질이 같은 자리에 있어서 이 감각이 큰 스케일로 발전할 수 있어요.</p>
+</div></div>
+
+<div class="card-strength">
+<div class="strength-num"><span style="font-size:11px;display:block;margin-bottom:2px;opacity:.6;">방향</span>03</div>
+<div class="strength-body">
+<div class="strength-title">자기 이름으로 만드는 영역</div>
+<p>프리랜서 크리에이터, 1인 브랜드, 독립 기획자. 시스템 안에서 움직이는 것보다 자기가 길을 만들어가는 게 맞을 수 있어요.</p>
+</div></div>
+
+<div class="box box-money">
+<span class="box-label">씨앗 뿌리기</span>
+<p>• <strong>만드는 경험을 늘리세요</strong> — 실행이 자신감의 원천. 완벽하지 않아도 결과물이 나오면 자기 가치가 올라가요<br>• <strong>은서에게 미적 결정권을 주세요</strong> — 방 꾸미기, 선물 고르기, 여행지 고르기<br>• "그걸 해서 뭐 하려고?" 대신 <strong>"더 해보고 싶으면 같이 알아볼까?"</strong></p>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 6</p>
+<div class="section-title">성인기 전환 예고</div>
+
+<div class="box box-money" style="margin-top:12px;">
+<span class="box-label">지금 심어둘 것</span>
+<p>작은 결정을 은서에게 넘기세요. 저녁 메뉴, 주말 일정, 여행 계획. 그리고 그 결정에 대해 대화하세요 — "왜 이걸 골랐어?"가 아니라 "이거 괜찮다, 다음엔 또 뭐 해볼까?" 은서가 결정해도 세상이 안 무너진다는 경험이 쌓여야, 나중에 큰 결정 앞에서 얼어붙지 않아요. 은정 씨의 분석력이 "검토해 주기"로 작동하면 — 은서의 결정을 뒤엎는 게 아니라 더 단단하게 만들어주는 역할. 그게 이 두 사람이 가장 잘 작동하는 방식이에요.</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<p class="label">Section 7</p>
+<div class="section-title">함께하는 활동</div>
+
+<ul style="list-style:none;padding:0;margin:12px 0 20px;">
+<li class="body-text" style="margin-bottom:8px;">• <strong>계절마다 방 배치 바꾸기</strong> — 은서의 공간 감각 + 은정 씨의 체계적 실행. 결과물이 바로 보이는 공동 프로젝트</li>
+<li class="body-text" style="margin-bottom:8px;">• <strong>미술관·전시회 함께 가기</strong> — "이건 뭐라고 생각해?"가 두 사람의 가장 좋은 채널을 열어요</li>
+<li class="body-text" style="margin-bottom:8px;">• <strong>같이 요리</strong> — 은정 씨가 레시피, 은서가 플레이팅. 역할이 자연스럽게 나뉘어요</li>
+<li class="body-text" style="margin-bottom:8px;">• <strong>카페에서 각자 시간</strong> — 같은 테이블에서 각자 하고 싶은 거 하기</li>
+<li class="body-text" style="margin-bottom:8px;">• <strong>여행 기획은 은서에게</strong> — 은서가 장소를 고르고 일정을 짜는 연습</li>
+<li class="body-text" style="margin-bottom:8px;">• <strong>영화나 드라마 같이 보기</strong> — 감정을 공유하는 가장 자연스러운 경로</li>
+</ul>
+
+<div class="box box-fate">
+<span class="box-label">가장 중요한 한 가지</span>
+<p>활동보다 중요한 건 그 안에서의 분위기예요. 뭘 하느냐가 아니라, 하면서 은서가 편안한지. 은정 씨의 레이더가 꺼져 있고, 결과를 평가하지 않고, 그냥 같이 있는 시간. 경쟁적이거나 점수가 나오는 건 피하세요 — 은서에게는 점수가 나오는 순간 "즐기기"가 "증명하기"로 바뀌어요.</p>
+</div>
+
+</div>
+<div class="divider"></div>
+
+<!-- CLOSING -->
+<div class="closing-box">
+<p>은서는 엄마의 사랑을 모르는 게 아니에요. 매일 느끼고 있어요 — 다만 그 사랑이 너무 가까이서 너무 세게 와서, 은서에게는 안기는 것보다 숨 막히는 쪽이 먼저 되는 거예요.</p>
+<p>은서가 방문을 닫을 때, 그건 은정 씨를 밀어내는 게 아니에요. 잠깐 혼자 숨 쉬고 나서, 스스로 문을 열겠다는 뜻이에요. 그 문이 열리는 시간은 은정 씨가 생각하는 것보다 짧아요. 기다려주기만 하면요.</p>
+<p>은정 씨가 읽어낸 것은 전부 맞았어요. 은서의 겉과 속이 다르다는 것, 이 아이 안에 말 못 하는 세계가 있다는 것. 그 감지력을 믿으세요. 다만 감지 다음에 오는 행동을 — 다가가기 대신 그 자리에 있기로 바꾸면, 은서는 엄마가 읽은 것보다 더 많은 걸 스스로 보여줄 거예요.</p>
+<p class="end-mark">여기만 넘기면 돼요. ✦</p>
+</div>
+
+<p class="muted" style="text-align:center;font-size:11px;letter-spacing:4px;margin-top:48px;margin-bottom:60px;">NODE 8 ATLAS LABS · 별빛 리포트</p>
+<p class="muted" style="text-align:center;font-size:10px;letter-spacing:2px;margin-bottom:80px;">김은서 × 장은정 · 2026년 4월</p>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var t=document.getElementById(this.getAttribute('href').substring(1));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
